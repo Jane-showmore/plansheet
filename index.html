@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>詳細開店方案比較表</title>
+  <style>
+    :root {
+      --primary-color: #2c4de2;
+      --section-bg: #f2f6ff;
+      --header-bg: #e6ecff;
+      --border-color: #c8d4f7;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto !important;
+      scrollbar-width: none;        /* Firefox */
+      -ms-overflow-style: none;     /* IE 10+ */
+    }
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #ffffff;
+  color: #000;
+  overflow-x: hidden; /* 不允許橫向滑動 */
+  overflow-y: auto;   /* 允許垂直滑動 */
+  min-height: auto;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .table-wrapper {
+      width: 100%;
+      max-height: 600px; /* 限制高度以產生內部滾動條 */
+      overflow-y: auto;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;        /* Firefox */
+      -ms-overflow-style: none;     /* IE 10+ */
+      transition: max-height 0.3s ease;
+    }
+    .table-wrapper:last-of-type {
+      margin-bottom: 0;
+    }
+    .table-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+    .pricing-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      /* box-shadow: none; */ /* Removed box-shadow for clean look */
+      /* border: none; */      /* Remove border if present */
+    }
+    .pricing-table thead {
+      background-color: var(--header-bg);
+    }
+    .pricing-table th,
+    .pricing-table td {
+      border: none;
+      padding: 1rem;
+      text-align: center;
+      vertical-align: middle;
+      color: #000;
+      width: 16.66%;
+    }
+    .pricing-table th:first-child,
+    .pricing-table td:first-child {
+      text-align: left;
+    }
+    .plan-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .price {
+      display: block;
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-top: 0.2rem;
+    }
+    .sub-price {
+      display: block;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .checkmark {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+    .cross {
+      color: #aaa;
+    }
+    .collapsible {
+      background-color: var(--section-bg);
+      cursor: pointer;
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      text-align: left;
+      width: 100%;
+      margin-top: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .collapsible:hover,
+    .collapsible:focus {
+      background-color: var(--header-bg);
+      color: var(--primary-color);
+      outline: none;
+    }
+    .arrow {
+      float: right;
+      transition: transform 0.3s ease;
+    }
+    button.collapsible.active .arrow {
+      transform: rotate(180deg);
+    }
+    .content {
+      display: none;
+    }
+    .content.show {
+      display: table-row-group;
+    }
+    .empty-head {
+      color: transparent;
+      background-color: var(--header-bg);
+      border: none;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .pricing-table thead {
+        display: none;
+      }
+      .pricing-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #ccc;
+      }
+      .pricing-table td {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .pricing-table td:first-child {
+        font-weight: bold;
+      }
+    }
+    /* 狀態控制：collapsed/expanded */
+    .table-wrapper.collapsed {
+      display: none !important;
+      max-height: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+    .table-wrapper.expanded {
+      display: block !important;
+      max-height: 600px !important;
+    }
+
+    .table-head-wrapper {
+      max-height: unset !important;
+      overflow: visible !important;
+    }
+  </style>
+</head>
+<body>
+
+<h2>詳細開店方案比較表</h2>
+
+<div class="table-head-wrapper">
+  <table class="pricing-table">
+    <thead>
+    <tr>
+        <th class="empty-head"></th>
+        <th><div class="plan-title">品牌形象版<span class="price">NT$12,800/年</span><span class="sub-price">平均 NT$1,067/月</span></div></th>
+        <th><div class="plan-title">電商入門版<span class="price">NT$25,800/年</span><span class="sub-price">平均 NT$2,150/月</span></div></th>
+        <th><div class="plan-title">電商標準版<span class="price">NT$39,800/年</span><span class="sub-price">平均 NT$3,317/月</span></div></th>
+        <th><div class="plan-title">電商全通路版<span class="price">NT$59,800/年</span><span class="sub-price">平均 NT$4,983/月</span></div></th>
+        <th><div class="plan-title">企業尊榮版<span class="price">VIP 專人諮詢</span><span class="sub-price">價格請洽顧問</span></div></th>
+    </tr>
+    </thead>
+  </table>
+</div>
+
+<!-- 商店功能 -->
+<button class="collapsible active" onclick="toggleSection('store')">商店功能 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="store" class="content show">
+    <tr>
+        <td>資安 WAF 防護系統</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商家安全認證(IP鎖定)</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>免費品牌網址1組</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>購物官網與部落格網站</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>SSL憑證</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>員工管理帳號與自訂義帳號角色管理</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>多樣版設計主題、拖拉設計、RWD響應式網頁</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>網站地圖SITEMAP、Meta Tag SEO設定、網域設定、301轉址設定</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>多幣別</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>帳單管理中心/帳單明細</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>站內聯絡表單</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>禁止未成年進入網頁</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訊息整合中心(顧客訊息、訂單備註)</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>快速加入購物車、立即購買按鈕</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>無限一頁式網站</td>
+        <td class="checkmark">✓(無購物車)</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>多官網</td>
+        <td colspan="5"><span style="color: red;">可加購</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  
+<!-- 金流串接 -->
+<button class="collapsible active" onclick="toggleSection('payment')">金流串接 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="payment" class="content show">
+    <tr>
+        <td>LINE PAY支付、街口支付、 全支付、線下轉帳</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>電子發票串接自動開立</td>
+        <td class="cross"></td>
+        <td class="partners">綠界、藍新</td>
+        <td class="partners">綠界、藍新、光貿</td>
+        <td class="partners">綠界、藍新、光貿</td>
+        <td class="partners">綠界、藍新、光貿</td>
+    </tr>
+    <tr>
+        <td>退貨處理-自動退款、部分訂單自動退款</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>第三方支付(藍新、綠界、精誠金融)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>第三方串接開發票</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  <!-- 商品功能管理 -->
+<button class="collapsible active" onclick="toggleSection('product-function')">商品功能管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="product-function" class="content show">
+    <tr>
+        <td>無限商品數與群組數</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>批次上傳商品/ 批次更新商品</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品關聯自訂(自訂推薦商品)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>智能推薦商品</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品樣式、重量、成本設定</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品庫存管理、安全庫存提醒</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品自訂篩選器</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品到貨通知</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>多購物車(商品綁溫層)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>預購商品設定</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>預約商品上架</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>商品限時販售</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>商品限購數量</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>商品評價留言</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>詢價商品</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>無限加價購商品／組合商品</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>業務商品直購網址</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>站內商品搜尋</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>    
+        <td>圖片庫 可上傳100,000 張</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+     <tr>
+            <td>隱藏商品賣場</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 訂單管理 -->
+<button class="collapsible active" onclick="toggleSection('order-management')">訂單管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="order-management" class="content show">
+    <tr>
+        <td>訂單明細列印/報表匯出</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單報表/撿貨追蹤</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>配送日期及時間設定</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單未付款提醒/未付款自動取消訂單設定</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單成立數量限制設定</td>
+        <td class="cross"></td>
+         <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>退貨處理(訂單手動更改狀態部分)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>退貨處理：自動退款、部分退款</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單合併／拆單</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>簡訊服務/7-11 多封取貨/提醒簡訊</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 站內行銷工具 -->
+<button class="collapsible active" onclick="toggleSection('marketing')">站內行銷工具 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="marketing" class="content show">
+    <tr>
+        <td>購物車未結帳提醒</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>購物金、點數/到期通知</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品評價留言</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>分銷分潤系統</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>免運活動(全館/指定商品)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>滿額折扣-變化活動(現金、折%、免運)(全館、指定商品)(指定金流、物流)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>促銷代碼(現金、折%、免運)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>贈品(滿額、滿件)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>點數(自訂折抵規則、換贈品、購買點數)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>組合商品活動A+B+C</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>任選優惠(同商品、紅配綠、任選商品)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>多層級折扣</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>單件特賣商品活動</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>滿額贈購物金(自訂等級設置)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>定期訂閱制(指定商品)/訂閱制優惠設定(贈品)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 會員管理 -->
+<button class="collapsible active" onclick="toggleSection('member')">會員管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="member" class="content show">
+    <tr>
+        <td>顧客標籤/黑名單</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Facebook、LINE快速註冊/顧客多元登入(Email/LINE/FB)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員篩選器</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>全方位顧客體驗(CDP)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員資訊(大量批次匯入匯出)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>再行銷工具(Email、簡訊)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>手動/自動回補購物金</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>VIP制度(入會、續會、升級)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 會員分級與顧客進階管理 -->
+<button class="collapsible active" onclick="toggleSection('segmentation')">會員分級與顧客進階管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="segmentation" class="content show">
+    <tr>
+        <td>無限會員分級</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員升級提醒</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員點數</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員註冊禮(購物金)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員推薦購物金</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員滿額贈購物金(自訂等級設置)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員生日購物金(自訂等級設置)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員專屬價格(自訂等級設置)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>指定會員優惠活動</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 第三方服務整合 -->
+<button class="collapsible active" onclick="toggleSection('integration')">第三方服務整合 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="integration" class="content show">
+    <tr>
+        <td>LINE、Facebook快速註冊登入</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Facebook商品目錄</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Facebook粉絲團連結、PIXEL追蹤、Facebook轉換API</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Google GA4串接、GTM、GA再行銷、GA轉換追蹤</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>美安夥伴商店</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>蝦皮購物</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>LINE 購物</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>LINE 團購+1/收單系統</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Facebook 直播+1/收單系統</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Facebook 貼文+1/收單系統</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>直播&團購銷售成效管理</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>直播留言/顧客黑名單</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>ocard OMO(另外串接開啟)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>Open API 開放</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark"><span style="color: red;">可加購</span></td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) -->
+<button class="collapsible active" onclick="toggleSection('OMO')">OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="OMO" class="content show">
+    <tr>
+        <td>智能結帳串接</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品價格彈性調整</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單、庫存即時查看</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>會員資料智慧管理</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>共享會員福利(點數、購物金)</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 營運數據/成效分析 -->
+<button class="collapsible active" onclick="toggleSection('analytics')">營運數據/成效分析 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="analytics" class="content show">
+    <tr>
+        <td>自訂日期/多元數據區間</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>基本報表-訂單數量/總銷售額/瀏覽人次/消費顧客數</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>圖表展示(總營業額、總訂單量、網站瀏覽人數、消費顧客數)</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單總覽/營業額明細/毛利率分析</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>商品銷售表現、回購分析</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>顧客消費圖表分析</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>訂單消費圖表分析</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>業務績效報表</td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 營運與支援 -->
+<button class="collapsible active" onclick="toggleSection('operations')">營運與支援 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
+  <table class="pricing-table">
+    <tbody id="operations" class="content show">
+    <tr>
+        <td>系統教學課程</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>專業客服輔助</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>專屬電商顧問服務</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>異質系統整合方案評估服務</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">✓</td>
+    </tr>
+    <tr>
+        <td>代運營團隊支持</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">請洽顧問</td>
+    </tr>
+    <tr>
+        <td>企業OMO案型客製</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">請洽顧問</td>
+    </tr>
+    <tr>
+        <td>廣告投放數據中心支持</td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="cross"></td>
+        <td class="checkmark">請洽顧問</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+function sendHeight() {
+  const height = document.body.scrollHeight;
+  // 傳送訊息給 Wix 的 iframe
+  parent.postMessage({ type: 'adjustHeight', height: height }, '*');
+}
+
+// 每次展開或縮合的時候重新量高度
+function toggleSection(id) {
+  const section = document.getElementById(id);
+  const button = document.querySelector(`button[onclick="toggleSection('${id}')"]`);
+  const wrapper = section.closest('.table-wrapper');
+  section.classList.toggle('show');
+  button.classList.toggle('active');
+  if (section.classList.contains('show')) {
+    wrapper.classList.remove('collapsed');
+    wrapper.classList.add('expanded');
+  } else {
+    wrapper.classList.remove('expanded');
+    wrapper.classList.add('collapsed');
+  }
+  setTimeout(sendHeight, 300);
+}
+
+window.onload = function() {
+  document.querySelectorAll('.content').forEach(section => section.classList.remove('show'));
+  document.querySelectorAll('.collapsible').forEach(button => button.classList.remove('active'));
+  document.querySelectorAll('.table-wrapper').forEach(wrapper => {
+    wrapper.classList.add('collapsed');
+    wrapper.classList.remove('expanded');
+  });
+  sendHeight();
+}
+</script>
+
+</body>
+</html>
