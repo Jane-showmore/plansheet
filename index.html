@@ -115,8 +115,15 @@ body::-webkit-scrollbar {
       float: right;
       transition: transform 0.3s ease;
     }
-    button.collapsible.active .arrow {
-      transform: rotate(180deg);
+
+    /* 新增展開收合效果樣式 */
+    .feature-group {
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      max-height: 0;
+    }
+    .feature-group.expanded {
+      max-height: 2000px; /* 足夠撐開全部內容的高度 */
     }
     .content {
       display: none;
@@ -181,8 +188,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 商店功能 -->
-<button class="collapsible active" onclick="toggleSection('store')">商店功能 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">商店功能 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="store" class="content show">
     <tr>
@@ -314,8 +321,8 @@ body::-webkit-scrollbar {
 </div>
   
 <!-- 金流串接 -->
-<button class="collapsible active" onclick="toggleSection('payment')">金流串接 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">金流串接 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="payment" class="content show">
     <tr>
@@ -363,8 +370,8 @@ body::-webkit-scrollbar {
 </div>
 
   <!-- 商品功能管理 -->
-<button class="collapsible active" onclick="toggleSection('product-function')">商品功能管理 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">商品功能管理 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="product-function" class="content show">
     <tr>
@@ -532,8 +539,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 訂單管理 -->
-<button class="collapsible active" onclick="toggleSection('order-management')">訂單管理 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">訂單管理 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="order-management" class="content show">
     <tr>
@@ -613,8 +620,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 站內行銷工具 -->
-<button class="collapsible active" onclick="toggleSection('marketing')">站內行銷工具 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">站內行銷工具 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="marketing" class="content show">
     <tr>
@@ -742,8 +749,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 會員管理 -->
-<button class="collapsible active" onclick="toggleSection('member')">會員管理 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">會員管理 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="member" class="content show">
     <tr>
@@ -815,8 +822,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 會員分級與顧客進階管理 -->
-<button class="collapsible active" onclick="toggleSection('segmentation')">會員分級與顧客進階管理 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">會員分級與顧客進階管理 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="segmentation" class="content show">
     <tr>
@@ -896,8 +903,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 第三方服務整合 -->
-<button class="collapsible active" onclick="toggleSection('integration')">第三方服務整合 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">第三方服務整合 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="integration" class="content show">
     <tr>
@@ -1017,8 +1024,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) -->
-<button class="collapsible active" onclick="toggleSection('OMO')">OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="OMO" class="content show">
     <tr>
@@ -1066,8 +1073,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 營運數據/成效分析 -->
-<button class="collapsible active" onclick="toggleSection('analytics')">營運數據/成效分析 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">營運數據/成效分析 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="analytics" class="content show">
     <tr>
@@ -1139,8 +1146,8 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 營運與支援 -->
-<button class="collapsible active" onclick="toggleSection('operations')">營運與支援 <span class="arrow">▼</span></button>
-<div class="table-wrapper">
+<button class="dropdown-toggle">營運與支援 <span class="arrow">▼</span></button>
+<div class="feature-group expanded">
   <table class="pricing-table">
     <tbody id="operations" class="content show">
     <tr>
@@ -1203,16 +1210,29 @@ body::-webkit-scrollbar {
   </table>
 </div>
 <script>
+// 調整高度給 Wix iframe
 function sendHeight() {
   const height = document.body.scrollHeight;
-  // 傳送訊息給 Wix 的 iframe
   parent.postMessage({ type: 'adjustHeight', height: height }, '*');
 }
 
-// 每次展開或縮合的時候重新量高度
-function toggleSection(id) {
-  // 禁用收合功能，無動作
-}
+// 展開箭頭與表格顯示控制
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling; // 下一個 feature-group
+    const arrow = button.querySelector('.arrow');
+    if (!content) return;
+    content.classList.toggle('expanded');
+    if (content.classList.contains('expanded')) {
+      content.style.maxHeight = content.scrollHeight + "px";
+      if (arrow) arrow.innerText = "▲";
+    } else {
+      content.style.maxHeight = null;
+      if (arrow) arrow.innerText = "▼";
+    }
+    sendHeight();
+  });
+});
 
 window.onload = function () {
   sendHeight();
