@@ -115,15 +115,8 @@ body::-webkit-scrollbar {
       float: right;
       transition: transform 0.3s ease;
     }
-
-    /* 新增展開收合效果樣式 */
-    .feature-group {
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      max-height: 0;
-    }
-    .feature-group.expanded {
-      max-height: 2000px; /* 足夠撐開全部內容的高度 */
+    button.collapsible.active .arrow {
+      transform: rotate(180deg);
     }
     .content {
       display: none;
@@ -188,10 +181,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 商店功能 -->
-<button class="dropdown-toggle">商店功能 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">商店功能 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="store" class="content show">
+    <tbody id="store" class="content">
     <tr>
         <td>資安 WAF 防護系統</td>
         <td class="checkmark">✓</td>
@@ -321,10 +314,10 @@ body::-webkit-scrollbar {
 </div>
   
 <!-- 金流串接 -->
-<button class="dropdown-toggle">金流串接 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">金流串接 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="payment" class="content show">
+    <tbody id="payment" class="content">
     <tr>
         <td>LINE PAY支付、街口支付、 全支付、線下轉帳</td>
         <td class="cross"></td>
@@ -370,10 +363,10 @@ body::-webkit-scrollbar {
 </div>
 
   <!-- 商品功能管理 -->
-<button class="dropdown-toggle">商品功能管理 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">商品功能管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="product-function" class="content show">
+    <tbody id="product-function" class="content">
     <tr>
         <td>無限商品數與群組數</td>
         <td class="cross"></td>
@@ -539,10 +532,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 訂單管理 -->
-<button class="dropdown-toggle">訂單管理 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">訂單管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="order-management" class="content show">
+    <tbody id="order-management" class="content">
     <tr>
         <td>訂單明細列印/報表匯出</td>
         <td class="cross"></td>
@@ -620,10 +613,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 站內行銷工具 -->
-<button class="dropdown-toggle">站內行銷工具 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">站內行銷工具 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="marketing" class="content show">
+    <tbody id="marketing" class="content">
     <tr>
         <td>購物車未結帳提醒</td>
         <td class="cross"></td>
@@ -749,10 +742,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 會員管理 -->
-<button class="dropdown-toggle">會員管理 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">會員管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="member" class="content show">
+    <tbody id="member" class="content">
     <tr>
         <td>顧客標籤/黑名單</td>
         <td class="cross"></td>
@@ -822,10 +815,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 會員分級與顧客進階管理 -->
-<button class="dropdown-toggle">會員分級與顧客進階管理 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">會員分級與顧客進階管理 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="segmentation" class="content show">
+    <tbody id="segmentation" class="content">
     <tr>
         <td>無限會員分級</td>
         <td class="cross"></td>
@@ -903,10 +896,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 第三方服務整合 -->
-<button class="dropdown-toggle">第三方服務整合 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">第三方服務整合 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="integration" class="content show">
+    <tbody id="integration" class="content">
     <tr>
         <td>LINE、Facebook快速註冊登入</td>
         <td class="cross"></td>
@@ -1024,10 +1017,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) -->
-<button class="dropdown-toggle">OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">OMO線上線下整合 (POS智能系統串接. 標準版以上可加購，價格請洽顧問) <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="OMO" class="content show">
+    <tbody id="OMO" class="content">
     <tr>
         <td>智能結帳串接</td>
         <td class="cross"></td>
@@ -1073,10 +1066,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 營運數據/成效分析 -->
-<button class="dropdown-toggle">營運數據/成效分析 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">營運數據/成效分析 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="analytics" class="content show">
+    <tbody id="analytics" class="content">
     <tr>
         <td>自訂日期/多元數據區間</td>
         <td class="cross"></td>
@@ -1146,10 +1139,10 @@ body::-webkit-scrollbar {
 </div>
 
 <!-- 營運與支援 -->
-<button class="dropdown-toggle">營運與支援 <span class="arrow">▼</span></button>
-<div class="feature-group expanded">
+<button class="collapsible">營運與支援 <span class="arrow">▼</span></button>
+<div class="table-wrapper">
   <table class="pricing-table">
-    <tbody id="operations" class="content show">
+    <tbody id="operations" class="content">
     <tr>
         <td>系統教學課程</td>
         <td class="checkmark">✓</td>
@@ -1210,33 +1203,47 @@ body::-webkit-scrollbar {
   </table>
 </div>
 <script>
-// 調整高度給 Wix iframe
 function sendHeight() {
   const height = document.body.scrollHeight;
+  // 傳送訊息給 Wix 的 iframe
   parent.postMessage({ type: 'adjustHeight', height: height }, '*');
 }
 
-// 展開箭頭與表格顯示控制
-document.querySelectorAll('.dropdown-toggle').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling; // 下一個 feature-group
-    const arrow = button.querySelector('.arrow');
-    if (!content) return;
-    content.classList.toggle('expanded');
-    if (content.classList.contains('expanded')) {
-      content.style.maxHeight = content.scrollHeight + "px";
-      if (arrow) arrow.innerText = "▲";
-    } else {
-      content.style.maxHeight = null;
-      if (arrow) arrow.innerText = "▼";
+document.addEventListener('DOMContentLoaded', function () {
+  // 預設全部展開
+  var coll = document.querySelectorAll('.collapsible');
+  var contents = document.querySelectorAll('.content');
+  coll.forEach(function (button, idx) {
+    button.classList.add('active');
+    // 切換箭頭
+    var arrow = button.querySelector('.arrow');
+    if (arrow) {
+      arrow.textContent = '▲';
     }
-    sendHeight();
   });
-});
-
-window.onload = function () {
+  contents.forEach(function (content) {
+    content.classList.add('show');
+  });
+  // 綁定所有 collapsible 按鈕
+  coll.forEach(function (button, idx) {
+    button.addEventListener('click', function () {
+      // 找到本 collapsible 對應的 content
+      var tableWrapper = button.nextElementSibling;
+      var content = tableWrapper ? tableWrapper.querySelector('.content') : null;
+      if (!content) return;
+      var isOpen = button.classList.contains('active');
+      button.classList.toggle('active', !isOpen);
+      content.classList.toggle('show', !isOpen);
+      // 切換箭頭符號
+      var arrow = button.querySelector('.arrow');
+      if (arrow) {
+        arrow.textContent = !isOpen ? '▲' : '▼';
+      }
+      sendHeight();
+    });
+  });
   sendHeight();
-}
+});
 </script>
 
 </body>
