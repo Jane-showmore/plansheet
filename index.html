@@ -38,13 +38,6 @@ body::-webkit-scrollbar {
     }
     .table-wrapper {
       width: 100%;
-      max-height: 600px; /* 限制高度以產生內部滾動條 */
-      overflow-y: auto;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;        /* Firefox */
-      -ms-overflow-style: none;     /* IE 10+ */
-      transition: max-height 0.3s ease;
     }
     .table-wrapper:last-of-type {
       margin-bottom: 0;
@@ -158,16 +151,9 @@ body::-webkit-scrollbar {
       }
     }
     /* 狀態控制：collapsed/expanded */
-    .table-wrapper.collapsed {
-      display: none !important;
-      max-height: 0 !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-    }
-    .table-wrapper.expanded {
-      display: block !important;
-      max-height: 600px !important;
-    }
+    /* .table-wrapper.collapsed, .table-wrapper.expanded {
+      // 已移除，展開全部內容
+    } */
 
     .table-head-wrapper {
       max-height: unset !important;
@@ -1225,28 +1211,10 @@ function sendHeight() {
 
 // 每次展開或縮合的時候重新量高度
 function toggleSection(id) {
-  const section = document.getElementById(id);
-  const button = document.querySelector(`button[onclick="toggleSection('${id}')"]`);
-  const wrapper = section.closest('.table-wrapper');
-  section.classList.toggle('show');
-  button.classList.toggle('active');
-  if (section.classList.contains('show')) {
-    wrapper.classList.remove('collapsed');
-    wrapper.classList.add('expanded');
-  } else {
-    wrapper.classList.remove('expanded');
-    wrapper.classList.add('collapsed');
-  }
-  setTimeout(sendHeight, 300);
+  // 禁用收合功能，無動作
 }
 
-window.onload = function() {
-  document.querySelectorAll('.content').forEach(section => section.classList.remove('show'));
-  document.querySelectorAll('.collapsible').forEach(button => button.classList.remove('active'));
-  document.querySelectorAll('.table-wrapper').forEach(wrapper => {
-    wrapper.classList.add('collapsed');
-    wrapper.classList.remove('expanded');
-  });
+window.onload = function () {
   sendHeight();
 }
 </script>
